@@ -1,0 +1,17 @@
+module HelloWorld(
+    input wire clk,   // Clock input
+    output wire led  // LED output
+);
+
+reg [23:0] counter;
+always @(posedge clk) begin
+    if (counter == 24'd500000) begin
+        counter <= 0;
+        led <= ~led; // Toggle the LED
+    end
+    else begin
+        counter <= counter + 1;
+    end
+end
+
+endmodule
